@@ -5,7 +5,7 @@ Purpose: Portfolio Project Script
 */
 
 let projects = [
-	{name: "Advising Website", description: "", img: "assets/advisingSite.png", class: "card", id: "projectOne"},
+	{name: "Advising Website", description: "", img: "assets/AdvisingSite.png", class: "card", id: "projectOne"},
 	{name: "Photography Website", description: "Lorem ipsum dolor sit amet", img: "assets/photographySite.png", class: "card", id: "projectTwo"},
 	{name: "Project 3", description: "Lorem ipsum dolor sit amet", img: "projects/tempProjects.png", class: "card", id: "projectThree"},
 	{name: "Project 4", description: "Lorem ipsum dolor sit amet", img: "projects/tempProjects.png", class: "card", id: "projectFour"},
@@ -46,4 +46,5 @@ overlay.addEventListener("click", function(e) {
 	if (e.target === overlay) {
 		overlay.style.display = "none";
 	}
+
 });
