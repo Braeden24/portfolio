@@ -1,0 +1,79 @@
+<!--
+Name: Braeden Carlson
+Date: 1/13/2026
+Purpose: Portfolio Index page
+-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Braeden Carlson | Portfolio</title>
+	<link rel="stylesheet" href="styles/contactStyles.css">
+</head>
+
+<header>
+    <nav>
+		<div id="navLinks">
+			<a href="home.html"><b>HOME</b></a>
+			<a href="projects.html"><b>PROJECTS</b></a>
+			<a href="resume.html"><b>RESUME</b></a>
+			<a class="active" href="contact.html"><b>CONTACT</b></a>
+		</div>
+		<p>Braedenron@gmail.com | 612-512-6938</p>
+	</nav>
+	<div class="hero-container">
+			<div id="hero">
+				<div id="heroInfo">
+					<h1>Let’s Connect</h1>
+					<h2>Seeking junior software or web development opportunities.
+						Reach out using the links or form below.</h2>
+				</div>
+			</div>
+		</div>
+</header>
+
+<main>
+	<div class="contact-container">
+		<section class="contact-info">
+			<ul>
+				<li><strong>Email:</strong> <a href="mailto:bcarlson4942@gmail.com">bcarlson4942@gmail.com</a></li>
+
+				<li><strong>LinkedIn:</strong>
+				<a href="https://linkedin.com/in/yourname" target="_blank">
+				linkedin.com/in/yourname
+				</a>
+				</li>
+
+				<li><strong>GitHub:</strong>
+				<a href="https://github.com/yourusername" target="_blank">
+				github.com/yourusername
+				</a>
+				</li>
+			</ul>
+		</section>
+
+		<div class="divider"></div>
+
+		<section class="contact-form">
+			<form action="https://formspree.io/f/xpqyawel" method="POST">
+			<label>
+				<strong>Name</strong>
+				<input type="text" name="name" required>
+			</label>
+			<label>
+				<strong>Email</strong>
+				<input type="email" name="email" required>
+			</label>
+			<label>
+				<strong>Message</strong>
+				<textarea name="message" rows="5" required></textarea>
+			</label>
+			<input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+			<button type="submit">Send Message</button>
+			</form>
+		</section>
+	</div>
+</main>
+
+</body>
+</html>

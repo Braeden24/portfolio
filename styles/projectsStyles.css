@@ -1,0 +1,237 @@
+/*
+Names: Braeden Carlson
+Date: 10/13/2026
+Purpose: Porfolio Index Styles
+*/
+
+/* -------------------- GLOBAL RESET -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI";
+}
+
+
+
+/* -------------------- NavBar -------------------- */
+nav {
+    display: flex;
+    height: 70px;
+    align-items: stretch;
+    justify-content: space-between;
+    background-image: url("../assets/NavBg.jpg");
+    padding: 0 10%;
+}
+
+#navLinks {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    height: 100%;
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+nav a.active {
+    border-bottom: 3px solid #4b7641;
+}
+
+nav p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    opacity: 0.6;
+    margin: 0;
+}
+
+
+
+/* -------------------- Hero -------------------- */
+.hero-container {
+    margin: 0 auto;
+    padding: 0 10%;
+	background-image: url("../assets/HeroBg.png");
+	border-bottom: 3px solid black;
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 1200px;
+    padding: 80px 0;
+    margin: 0 auto;
+}
+
+
+
+#heroInfo {
+    text-align: center;
+}
+
+#heroInfo h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+}
+
+#heroInfo h2 {
+    font-size: 26px;
+    color: #666;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+#heroInfo p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 30px 5%;
+    margin: auto;
+}
+
+.card {
+	background: #f3f3f5;
+	border: 4px solid #2f2f2f;
+	padding: 10px;
+	text-align: center;
+	border-radius: 12px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img {
+	width: 100%;
+	border: 3px solid black;
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+#overlay {
+	position: fixed;
+	display: none;
+	width: 100%;
+	height: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+}
+
+#overlayContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: clamp(300px, 80%, 800px);
+	max-height: 85vh;    
+	background-color: white;
+    padding-bottom: 20px;
+    margin: 5% auto;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+	overflow-y: auto;
+}
+
+#overlayContent img {
+    display: block;
+    width: 80%;
+	border: 5px solid black;
+    height: auto;
+    margin: 15px auto;
+}
+
+#overlayContent hr {
+	width: 80%;
+	margin: auto;
+}
+
+#overlayContent h1 {
+	margin-bottom: 24px;
+    text-align: center;
+}
+
+#overlayContent h2 {
+	margin-bottom: 18px;
+    text-align: center;
+}
+
+#overlayContent p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 5%;
+        gap: 10px;
+        align-items: center;
+    }
+
+    #navLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    nav p {
+        font-size: 14px;
+        text-align: center;
+    }
+	
+	#hero {
+        padding: 50px 0;
+    }
+
+    #heroInfo h1 {
+        font-size: 34px;
+    }
+
+    #heroInfo h2 {
+        font-size: 18px;
+    }
+
+}

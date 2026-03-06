@@ -1,0 +1,246 @@
+/*
+Names: Braeden Carlson
+Date: 10/21/2026
+Purpose: Porfolio Index Styles
+*/
+
+/* -------------------- GLOBAL RESET -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI";
+}
+
+nav {
+    display: flex;
+    height: 70px;
+    align-items: stretch;
+    justify-content: space-between;
+    background-image: url("../assets/NavBg.jpg");
+    padding: 0 10%;
+}
+
+#navLinks {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    height: 100%;
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+nav a.active {
+    border-bottom: 3px solid #4b7641;
+}
+
+nav p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    opacity: 0.6;
+    margin: 0;
+}
+
+.hero-container {
+    margin: 0 auto;
+    padding: 0 10%;
+	background-image: url("../assets/HeroBg.png");
+	border-bottom: 3px solid black;
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 1200px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+
+
+#heroInfo {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    text-align: left;
+}
+
+#heroInfo h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+}
+
+#heroInfo h2 {
+    font-size: 26px;
+    color: #666;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+#heroInfo p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+	background: #f5f5f3;
+	margin: 20px 5%;
+	border: 4px solid #2f2f2f;
+	padding: 50px 60px;
+	border-radius: 12px;
+	display: grid;
+	grid-template-columns: 1fr 4px 2fr;
+	gap: 40px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.divider {
+	background: #2f2f2f;
+	width: 4px;
+	height: 100%;
+}
+
+.contact-info {
+	display: flex;
+	align-items: center;
+}
+
+.contact-info li {
+	margin-bottom: 50px;
+	font-size: 20px;
+}
+
+.contact-info ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.contact-info strong {
+    color: #4b7641;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #333;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+	width: 100%;
+	padding: 10px 12px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	margin-top: 6px;
+}
+
+.contact-form button {
+	background: #4b7641;
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 6px;
+	cursor: pointer;
+	width: fit-content;
+}
+
+.contact-form button:hover {
+	background: #3e6235;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border: 1px solid #4b7641;
+    box-shadow: 0 0 5px rgba(75,118,65,0.3);
+}
+
+/* -------------------- MOBILE -------------------- */
+@media (max-width: 700px) {
+
+nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 5%;
+        gap: 10px;
+        align-items: center;
+    }
+
+    #navLinks {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    nav p {
+        font-size: 14px;
+        text-align: center;
+    }
+	
+	#hero {
+        padding: 50px 0;
+    }
+
+    #heroInfo h1 {
+        font-size: 34px;
+    }
+
+    #heroInfo h2 {
+        font-size: 18px;
+    }
+
+	.contact-container {
+		grid-template-columns: 1fr;
+		padding: 30px;
+		gap: 30px;
+	}
+
+	.divider {
+		display: none;
+	}
+
+	.contact-info {
+		justify-content: center;
+		text-align: center;
+	}
+
+	.contact-info li {
+		margin-bottom: 25px;
+	}
+}
