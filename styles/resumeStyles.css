@@ -109,32 +109,32 @@ main {
     border: 4px solid #2f2f2f;
 }
 
-li {
+main li {
     margin-bottom: 8px;
     font-size: 18px;
 }
 
-hr {
+main hr {
 	height: 3px;
 	background-color: black;
 	margin-top: 18px;
 }
 
-h1 {
+main h1 {
 	text-align: center;
 }
 
-h2 {
+main h2 {
     text-align: center;
     font-size: 18px;
     line-height: 1.5;
 }
 
-ul {
+main ul {
 	padding-left: 20px;
 }
 
-p {
+main p {
 	font-size: 18px;
 	padding-left: 10px;
 }
@@ -196,3 +196,4 @@ p {
     }
 
 }
+
