@@ -14,12 +14,11 @@ Purpose: Porfolio Index Styles
 
 nav {
     display: flex;
-    align-items: center;
+    height: 70px;
+    align-items: stretch;
     justify-content: space-between;
     background-image: url("../assets/NavBg.jpg");
     padding: 0 10%;
-    min-height: 70px;
-    flex-wrap: wrap;
 }
 
 #navLinks {
@@ -195,4 +194,5 @@ p {
 	p, li {
         font-size: 16px;
     }
+
 }
