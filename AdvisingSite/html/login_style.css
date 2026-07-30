@@ -1,0 +1,49 @@
+/*
+Name: Braeden Carlson, Lynda Ofurie, Justin Day
+Date: 10/30/2025
+Purpose: Advising Website Login Styles
+File Name: login_styles.css
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Segoe UI";
+}
+
+body {
+	display: flex;
+	background: #f0f0f0;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+form {
+	display: flex;
+	background: white;
+	flex-direction: column;
+	width: 25%;
+	height: 75%;
+	align-items: center;
+	padding: 50px;
+	border: 2px solid black;
+	border-radius: 10px;
+	box-shadow: 0 0 10px gray;
+}
+
+h1 {
+	text-align: center;
+	margin: 10px;
+	width: 100%;
+	padding: 20px;
+}
+
+input, button {
+	margin: 10px;
+	width: 100%;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 24px;
+}

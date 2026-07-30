@@ -1,0 +1,279 @@
+<!--
+Name: Braeden Carlson, Lynda Ofurie, Justin Day
+Date: 10/8/2025
+Purpose: Advising Website
+File Name: index.html
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Advising Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Notes Popup -->
+    <div id="myPopup" class="popup-overlay">
+        <div class="popup-content">
+            <button id="closePopupBtn">&times;</button>
+            <textarea id="notepadArea" placeholder="Enter Notes..."></textarea>
+            <button onclick="insertTimestamp()">Insert Timestamp</button>
+        </div>
+    </div>
+
+    <!-- Import Students Popup -->
+    	<div id="importPopup" class="popup-overlay">
+    		<div class="popup-content">
+        		<button id="closeImportPopupBtn">&times;</button>
+        		<h2>Import Students</h2>
+
+        		<p>
+            			Upload a text file with one student per line:<br>
+            			StarID, First Name, Last Name, Started Date,  Area of Emphasis 1 | Area of Emphasis 2 | ...
+        		</p>
+
+        	<input type="file" id="importFile" accept=".txt,.csv">
+
+        <button id="runImportBtn">Import Students</button>
+
+        <textarea id="importResult"
+                  placeholder="Import log will appear here..."
+                  readonly></textarea>
+    	</div>
+	</div>
+
+
+    <!-- Navigation bar -->
+    <nav class="topnav">
+        <ul class="nav-links">
+            <div class="verticalDivider"></div>
+            <li><a href="#" id="openPopupBtn">Notes</a></li>            
+            <div class="verticalDivider"></div>
+            <li><a href="#" id="saveBtn">Save</a></li>
+            <div class="verticalDivider"></div>
+	    <li><a href="#" onclick="exportAdvisingReport()">Export</a></li>
+            <div class="verticalDivider"></div>
+            <li><a href="#" id="importBtn">Import</a></li>
+	    <div class="verticalDivider"></div>
+        </ul>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside id="Sidebar">
+        <div id="studentSelect">
+            <h1><u>STUDENT</u></h1>
+
+            <div class="search-container">
+                <input type="text" id="studentSearch" placeholder="Enter student name">
+                <button id="searchStudentsBtn">
+                    <img src="assets/magnifying-glass.png">
+                </button>
+            </div>
+
+            <div id="studentList"></div>
+        </div>
+
+        <hr>
+
+        <div id="classSelect">
+            <h1><u>CLASSES</u></h1>
+
+            <div class="class-toggle">
+                <button class="toggle-btn active">Core</button>
+                <button class="toggle-btn">Gen Ed</button>
+            </div>
+
+            <input type="text" id="classSearch" placeholder="Search Class">
+
+            <div id="classList">
+                <!-- Classes loaded dynamically -->
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+
+        <!-- Student Info / Schedule Overview -->
+        <div id="studentTabs">
+            <div class="main-tabs">
+                <button class="tab active" data-tab="infoTab">Student Info</button>
+                <button class="tab" data-tab="scheduleTab">Schedule Overview</button>
+            </div>
+			<div class="tab-divider"></div>
+
+            <!-- Student Info content -->
+            <div class="tab-content active" id="infoTab">
+                <div class="student-info">
+                    <form>
+                        <input type="text" id="studentName" name="studentName" placeholder="Student Name">
+                        <input type="text" id="starID" name="starID" placeholder="Star ID">
+                        <input type="text" id="Core-Credits" name="coreCredits"
+                            placeholder=" Core Credits Earned (0/#)">
+                        <input type="text" id="GenEd-Credits" name="genEdCredits"
+                            placeholder="Gen Ed Credits Earned (0/#)">
+                        <select name="emphasis" id="emphasis">
+                            <option disabled hidden selected>Area of emphasis</option>
+                            <option value="Business Data Analyst">Business Data Analyst</option>
+                            <option value="Network Managment & Security">Network Managment & Security</option>
+                            <option value="Software Development">Software Development</option>
+                            <option value="Web Design & Development">Web Design & Development</option>
+                        </select>
+                        <button type="button" id="addButton"><b>ADD</b></button>
+						<input type="date" id="semester" name="semester">
+                        <div id="emphasisTabs"></div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Schedule Overview content -->
+            <div class="tab-content" id="scheduleTab">
+                <table id="scheduleOverviewTable">
+                    <thead>
+                        <tr>
+                            <th>
+								<!-- Semester names filled by dynamically -->
+							</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filled dynamically from advising tables -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Advising Table -->
+<div id="advisingTable">
+
+    <!-- Semester Tabs -->
+    <div class="advising-tabs">
+		<button class="tab active">Semester 1</button>
+		<button class="tab">Semester 2</button>
+		<button class="tab">Semester 3</button>
+		<button class="tab">Semester 4</button>
+
+		<button id="addSemesterBtn" class="add-semester-btn">+</button>
+	</div>
+
+    <div class="tab-divider"></div>
+
+    <!-- Semester 1 table -->
+    <div class="tab-content active">
+        <div class="advising-table-scroll">
+            <table>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Title</th>
+                    <th>Credits</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td class="courseID"><input type="text" placeholder="Course ID"></td>
+                    <td class="courseTitle"><input type="text" placeholder="Course Title"></td>
+                    <td class="credits"><input type="number" placeholder="Credits"></td>
+                    <td class="status">
+                        <select>
+                            <option value="" disabled hidden selected>Status</option>
+                            <option value="planned">Planned</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="dropped">Dropped</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Semester 2 table -->
+    <div class="tab-content">
+        <div class="advising-table-scroll">
+            <table>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Title</th>
+                    <th>Credits</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td class="courseID"><input type="text" placeholder="Course ID"></td>
+                    <td class="courseTitle"><input type="text" placeholder="Course Title"></td>
+                    <td class="credits"><input type="number" placeholder="Credits"></td>
+                    <td class="status">
+                        <select>
+                            <option value="" disabled hidden selected>Status</option>
+                            <option value="planned">Planned</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="dropped">Dropped</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Semester 3 table -->
+    <div class="tab-content">
+        <div class="advising-table-scroll">
+            <table>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Title</th>
+                    <th>Credits</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td class="courseID"><input type="text" placeholder="Course ID"></td>
+                    <td class="courseTitle"><input type="text" placeholder="Course Title"></td>
+                    <td class="credits"><input type="number" placeholder="Credits"></td>
+                    <td class="status">
+                        <select>
+                            <option value="" disabled hidden selected>Status</option>
+                            <option value="planned">Planned</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="dropped">Dropped</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Semester 4 table -->
+    <div class="tab-content">
+        <div class="advising-table-scroll">
+            <table>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Title</th>
+                    <th>Credits</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td class="courseID"><input type="text" placeholder="Course ID"></td>
+                    <td class="courseTitle"><input type="text" placeholder="Course Title"></td>
+                    <td class="credits"><input type="number" placeholder="Credits"></td>
+                    <td class="status">
+                        <select>
+                            <option value="" disabled hidden selected>Status</option>
+                            <option value="planned">Planned</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="dropped">Dropped</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>
