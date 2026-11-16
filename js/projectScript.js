@@ -5,8 +5,20 @@ Purpose: Portfolio Project Script
 */
 
 let projects = [
-	{name: "Advising Website", description: "", img: "assets/AdvisingSite.png", class: "card", id: "projectOne"},
-	{name: "Photography Website", description: "Lorem ipsum dolor sit amet", img: "assets/photographySite.png", class: "card", id: "projectTwo"},
+	{
+		name: "Advising Website",
+		readme: "projects/advising-website/README.md",
+		img: "assets/AdvisingSite.png",
+		class: "card",
+		id: "projectOne"
+	},
+	{
+		name: "Photography Website",
+		readme: "projects/photography-marketplace/README.md",
+		img: "assets/photographySite.png",
+		class: "card",
+		id: "projectTwo"
+	},
 ];
 
 //defines the cardContainer Variable
@@ -22,27 +34,55 @@ for (let i = 0; i < projects.length; i++) {
   
 	//Creates a click event to activate the overlay
 	card.addEventListener("click", function() {
-		overlayContent.innerHTML = `
-			<div class="overlayCard">
-			<h1>${projects[i].name}</h1>
-			<img src="${projects[i].img}" alt="${projects[i].name}">
-			<h2>Description</h2>
-			<hr>
-			<p>${projects[i].description}</p>
-		</div>`;
-	overlay.style.display = "block";
+
+	fetch(projects[i].readme)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error("Unable to load README");
+			}
+
+			return response.text();
+		})
+		.then(markdown => {
+
+			overlayContent.innerHTML = `
+				<div class="overlayCard">
+					<h1>${projects[i].name}</h1>
+
+					<img src="${projects[i].img}" alt="${projects[i].name}">
+
+					<div class="project-readme">
+						${marked.parse(markdown)}
+					</div>
+				</div>
+			`;
+
+			overlay.style.display = "block";
+		})
+		.catch(error => {
+			console.error(error);
+
+			overlayContent.innerHTML = `
+				<div class="overlayCard">
+					<h1>${projects[i].name}</h1>
+					<p>Unable to load project information.</p>
+				</div>
+			`;
+
+			overlay.style.display = "block";
+		});
+			});
 	});
 
 	// Appends each new card to the cardsContainer
 	cardsContainer.appendChild(card);
 }
 
-//Closed the overlay when clicked
+// Closes the overlay when clicked outside the content
 overlay.addEventListener("click", function(e) {
-	// prevent closing when clicking inside content
 	if (e.target === overlay) {
 		overlay.style.display = "none";
 	}
-
 });
+	});
 
