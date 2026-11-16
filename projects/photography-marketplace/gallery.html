@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+   	<meta charset="utf-8" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+   	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+   	<title>Photography</title>
+   	<link rel="stylesheet" href="css/gallery.css" />
+	<script src="js/photos.js" defer></script>
+	<script src="js/gallery.js" defer></script>
+</head>
+
+<main class="marketplace" id="marketplace">
+
+	<!--FILTER SIDEBAR-->
+	<aside class="filter-sidebar" id="filter-sidebar">       
+		<h2>Filters</h2>
+       	<div class="filter-group">
+    		<p class="filter-heading">Category</p>
+
+			<!--CATEGORIES FILTER-->
+    		<label>
+        		<input type="radio" name="category" value="all" checked>
+        		All Photos
+   	 		</label>
+
+    		<label>
+        		<input type="radio" name="category" value="animals">
+        		Animals
+   		 	</label>
+
+    		<label>
+        		<input type="radio" name="category" value="landscapes">
+        		Landscapes
+    		</label>
+
+    		<label>
+        		<input type="radio" name="category" value="plants">
+        		Plants
+    		</label>
+		</div>
+
+		<!--PHOTOGRAPHERS FILTER-->
+		<div class="filter-group">
+    		<p class="filter-heading">Photographer</p>
+
+    		<label>
+        		<input type="radio" name="photographer" value="all" checked>
+        		All Photographers
+    		</label>
+
+    		<label>
+        		<input type="radio" name="photographer" value="Mike Klein">
+        		Mike Klein
+    		</label>
+
+    		<label>
+        		<input type="radio" name="photographer" value="Sue Carlson">
+        		Sue Carlson
+    		</label>
+
+    		<label>
+        		<input type="radio" name="photographer" value="Wendy Carlson">
+        		Wendy Carlson
+    		</label>
+		</div>
+		
+		<!--RESET FILTERS-->
+		<button id="clear-filters" type="button">
+    		Clear Filters
+		</button>
+
+		<!--COLLAPSE FILTER-->
+		<button class="filter-toggle" id="filter-toggle" type="button" aria-label="Hide filters" aria-controls="filter-sidebar" aria-expanded="true">
+			<span class="filter-icon">☷</span>
+		</button>
+    </aside>
+
+	<!--MAIN GALLLERY-->
+    <section class="gallery-section">
+
+        <input type="search" id="photo-search" placeholder="Search photographs...">
+        <p id="results-count"></p>
+		
+        <div id="photo-gallery" class="photo-gallery"></div>
+        <p id="empty-message" hidden>
+            No photographs match your filters.
+        </p>
+    </section>
+	
+	<!--LIGHTBOX-->
+	<div class="photo-lightbox" id="photo-lightbox">
+    <button class="lightbox-close" id="lightbox-close" type="button"> X </button>
+    <img id="lightbox-image">
+
+</div>
+	
+	<!--CART-->
+	<aside class="cart-sidebar" id="cart-sidebar">
+	
+    <h2>Cart</h2>
+	
+    <div id="cart-items" class="cart-items">
+        <p class="cart-empty">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-total">
+        <strong>Total:</strong>
+        <span id="cart-total">$0.00</span>
+    </div>
+
+    <button id="checkout-button" type="button">
+        Proceed to Checkout
+    </button>
+
+    <button id="cart-toggle" class="cart-toggle">
+		<span class="cart-icon">🛒</span>
+		<span id="cart-count" class="cart-count">0</span>
+	</button>
+
+</aside>
+	
+</main>
+</html>
