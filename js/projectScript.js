@@ -1,3 +1,4 @@
+
 /*
 Name: Braeden Carlson
 Date: 1/13/2026
@@ -21,56 +22,63 @@ let projects = [
 	},
 ];
 
-//defines the cardContainer Variable
+// Defines the cardContainer variables
 let cardsContainer = document.getElementById("cards");
 let overlay = document.getElementById("overlay");
 let overlayContent = document.getElementById("overlayContent");
 
+// Creates a card for each project
 for (let i = 0; i < projects.length; i++) {
 	let card = document.createElement("div");
+
 	card.id = projects[i].id;
 	card.className = projects[i].class;
-	card.innerHTML = `<img src="${projects[i].img}" alt="${projects[i].name}"><h3>${projects[i].name}</h3>`;
-  
-	//Creates a click event to activate the overlay
+	card.innerHTML = `
+		<img src="${projects[i].img}" alt="${projects[i].name}">
+		<h3>${projects[i].name}</h3>
+	`;
+
+	// Creates a click event to activate the overlay
 	card.addEventListener("click", function() {
 
-	fetch(projects[i].readme)
-		.then(response => {
-			if (!response.ok) {
-				throw new Error("Unable to load README");
-			}
+		// Fetches the project's README file
+		fetch(projects[i].readme)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Unable to load README");
+				}
 
-			return response.text();
-		})
-		.then(markdown => {
+				return response.text();
+			})
+			.then(markdown => {
 
-			overlayContent.innerHTML = `
-				<div class="overlayCard">
-					<h1>${projects[i].name}</h1>
+				// Converts Markdown into HTML and displays it
+				overlayContent.innerHTML = `
+					<div class="overlayCard">
+						<h1>${projects[i].name}</h1>
 
-					<img src="${projects[i].img}" alt="${projects[i].name}">
+						<img src="${projects[i].img}" alt="${projects[i].name}">
 
-					<div class="project-readme">
-						${marked.parse(markdown)}
+						<div class="project-readme">
+							${marked.parse(markdown)}
+						</div>
 					</div>
-				</div>
-			`;
+				`;
 
-			overlay.style.display = "block";
-		})
-		.catch(error => {
-			console.error(error);
+				overlay.style.display = "block";
+			})
+			.catch(error => {
+				console.error(error);
 
-			overlayContent.innerHTML = `
-				<div class="overlayCard">
-					<h1>${projects[i].name}</h1>
-					<p>Unable to load project information.</p>
-				</div>
-			`;
+				// Displays an error if the README cannot be loaded
+				overlayContent.innerHTML = `
+					<div class="overlayCard">
+						<h1>${projects[i].name}</h1>
+						<p>Unable to load project information.</p>
+					</div>
+				`;
 
-			overlay.style.display = "block";
-		});
+				overlay.style.display = "block";
 			});
 	});
 
@@ -84,5 +92,3 @@ overlay.addEventListener("click", function(e) {
 		overlay.style.display = "none";
 	}
 });
-	});
-
