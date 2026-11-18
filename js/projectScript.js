@@ -10,13 +10,19 @@ let projects = [
 		name: "Advising Website",
 		readme: "projects/advising-website/README.md",
 		img: "assets/AdvisingSite.png",
+		github: "https://github.com/Braeden24/faculty-advising-system",
+		live: "projects/advising-website/index.html",
+		download: "projects/downloads/advising-website.zip",
 		class: "card",
 		id: "projectOne"
 	},
 	{
-		name: "Photography Marketplace",
+		name: "Photography Website",
 		readme: "projects/photography-marketplace/README.md",
-		img: "assets/photographyMarketplace.png",
+		img: "assets/photographySite.png",
+		github: "https://github.com/Braeden24/photography-marketplace",
+		live: "projects/photography-marketplace/gallery.html",
+		download: "projects/downloads/photography-marketplace.zip",
 		class: "card",
 		id: "projectTwo"
 	},
