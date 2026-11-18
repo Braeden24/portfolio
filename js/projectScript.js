@@ -14,7 +14,7 @@ let projects = [
 		id: "projectOne"
 	},
 	{
-		name: "Photography Website",
+		name: "Photography Marketplace",
 		readme: "projects/photography-marketplace/README.md",
 		img: "assets/photographyMarketplace.png",
 		class: "card",
