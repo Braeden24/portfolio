@@ -65,6 +65,12 @@ for (let i = 0; i < projects.length; i++) {
 
 						<img src="${projects[i].img}" alt="${projects[i].name}">
 
+						<div class="project-links">
+							<a href="${projects[i].live}" target="_blank">View Live</a>
+							<a href="${projects[i].github}" target="_blank">GitHub Repository</a>
+							<a href="${projects[i].download}" download>Download</a>
+						</div>
+						
 						<div class="project-readme">
 							${marked.parse(markdown)}
 						</div>
