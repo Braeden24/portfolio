@@ -125,7 +125,6 @@ nav p {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
-}
 
 .card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -141,95 +140,127 @@ nav p {
     font-size: 22px;
 }
 
+/* -------------------- Project Overlay -------------------- */
+
 #overlay {
-	position: fixed;
-	display: none;
-	width: 100%;
-	height: auto;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 }
 
 #overlayContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: clamp(300px, 80%, 800px);
-	max-height: 85vh;    
-	background-color: white;
-    padding-bottom: 20px;
+    width: clamp(300px, 80%, 900px);
+    max-height: 85vh;
     margin: 5% auto;
+    padding: 30px;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-	overflow-y: auto;
+    overflow-y: auto;
 }
 
-#overlayContent img {
+.overlayCard {
+    width: 100%;
+}
+
+.overlayCard > h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.overlayCard > img {
     display: block;
     width: 80%;
-	border: 5px solid black;
+    max-width: 700px;
     height: auto;
-    margin: 15px auto;
+    margin: 15px auto 30px;
+    border: 5px solid black;
 }
 
-#overlayContent hr {
-	width: 80%;
-	margin: auto;
-}
+/* README formatting */
 
-#overlayContent h1 {
-	margin-bottom: 24px;
-    text-align: center;
-}
-
-#overlayContent h2 {
-	margin-bottom: 18px;
-    text-align: center;
-}
-
-#overlayContent p {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.project-description {
+.project-readme {
+    width: 100%;
     text-align: left;
-}
-
-.project-description h1,
-.project-description h2,
-.project-description h3 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.project-description p {
     line-height: 1.6;
 }
 
-.project-description ul,
-.project-description ol {
-    padding-left: 1.5rem;
+.project-readme h1,
+.project-readme h2,
+.project-readme h3,
+.project-readme h4 {
+    text-align: left;
+    margin-top: 1.5em;
+    margin-bottom: 0.6em;
 }
 
-.project-description img {
+.project-readme h1 {
+    font-size: 2em;
+}
+
+.project-readme h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.project-readme h3 {
+    font-size: 1.25em;
+}
+
+.project-readme p {
+    margin-bottom: 1em;
+}
+
+.project-readme ul,
+.project-readme ol {
+    margin: 0 0 1em 1.5em;
+    padding-left: 1.5em;
+}
+
+.project-readme li {
+    margin-bottom: 0.4em;
+}
+
+.project-readme a {
+    color: #315f8a;
+}
+
+.project-readme img {
+    display: block;
     max-width: 100%;
     height: auto;
+    margin: 20px auto;
 }
 
-.project-description code {
+.project-readme code {
     padding: 2px 5px;
+    background-color: #eee;
     border-radius: 4px;
 }
 
-.project-description pre {
-    padding: 1rem;
+.project-readme pre {
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #eee;
+    border-radius: 6px;
     overflow-x: auto;
-    border-radius: 8px;
+}
+
+.project-readme pre code {
+    padding: 0;
+    background: none;
+}
+
+.project-readme hr {
+    margin: 25px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
 }
 
 @media (max-width: 700px) {
