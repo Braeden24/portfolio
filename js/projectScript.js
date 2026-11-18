@@ -19,7 +19,7 @@ let projects = [
 	{
 		name: "Photography Website",
 		readme: "projects/photography-marketplace/README.md",
-		img: "assets/photographySite.png",
+		img: "assets/photographyMarketplace.png",
 		github: "https://github.com/Braeden24/photography-marketplace",
 		live: "projects/photography-marketplace/gallery.html",
 		download: "projects/downloads/photography-marketplace.zip",
