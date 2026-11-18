@@ -196,6 +196,42 @@ nav p {
     text-align: center;
 }
 
+.project-description {
+    text-align: left;
+}
+
+.project-description h1,
+.project-description h2,
+.project-description h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-description p {
+    line-height: 1.6;
+}
+
+.project-description ul,
+.project-description ol {
+    padding-left: 1.5rem;
+}
+
+.project-description img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-description code {
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.project-description pre {
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
 @media (max-width: 700px) {
 
     nav {
